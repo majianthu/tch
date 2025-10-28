@@ -25,16 +25,16 @@ tFrankCopula = function(x){
   u = construct_empirical_copula(x) - 0.5 / dim(x)[1]
   fit.tau = fitCopula(frankCopula(), u, method = "mpl")
   tau = fit.tau@estimate
-  gCopula = frankCopula(param=tau)
-  copent(x) - mean(dCopula(u,gCopula,log = TRUE))
+  fCopula = frankCopula(param=tau)
+  copent(x) - mean(dCopula(u,fCopula,log = TRUE))
 }
 
 tClaytonCopula = function(x){
   u = construct_empirical_copula(x) - 0.5 / dim(x)[1]
   fit.tau = fitCopula(claytonCopula(), u, method = "mpl")
   tau = fit.tau@estimate
-  gCopula = claytonCopula(param=tau)
-  copent(x) - mean(dCopula(u,gCopula,log = TRUE))
+  cCopula = claytonCopula(param=tau)
+  copent(x) - mean(dCopula(u,cCopula,log = TRUE))
 }
 
 # simulation for testing Gaussian copula
